@@ -17,7 +17,8 @@
 		8A8C3D2727A5C5D500ED8B07 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C3D2527A5C5D500ED8B07 /* HomeVC.xib */; };
 		8A8C3D2D27A5C6C600ED8B07 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C3D2B27A5C6C600ED8B07 /* SettingsVC.swift */; };
 		8A8C3D2E27A5C6C600ED8B07 /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C3D2C27A5C6C600ED8B07 /* SettingsVC.xib */; };
-		8A8C3D3027A5D25E00ED8B07 /* 8ball-shake.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake.gif */; };
+		8A8C3D3027A5D25E00ED8B07 /* 8ball-shake-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake-gif.gif */; };
+		8A8C3D3227A5E67600ED8B07 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C3D3127A5E67600ED8B07 /* UIImage+Gif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		8A8C3D2527A5C5D500ED8B07 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		8A8C3D2B27A5C6C600ED8B07 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8A8C3D2C27A5C6C600ED8B07 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
-		8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "8ball-shake.gif"; sourceTree = "<group>"; };
+		8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "8ball-shake-gif.gif"; sourceTree = "<group>"; };
+		8A8C3D3127A5E67600ED8B07 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 				8A8C3D1C27A5B99800ED8B07 /* Support Files */,
 				8A8C3D1B27A5B98300ED8B07 /* Models */,
 				8A8C3D1527A5B20A00ED8B07 /* Info.plist */,
-				8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake.gif */,
+				8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake-gif.gif */,
 			);
 			path = "8-Ball-Without-Actual-Ball";
 			sourceTree = "<group>";
@@ -107,6 +109,7 @@
 		8A8C3D1E27A5B9C400ED8B07 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8A8C3D3127A5E67600ED8B07 /* UIImage+Gif.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,7 +203,7 @@
 				8A8C3D2E27A5C6C600ED8B07 /* SettingsVC.xib in Resources */,
 				8A8C3D2727A5C5D500ED8B07 /* HomeVC.xib in Resources */,
 				8A8C3D1127A5B20A00ED8B07 /* Assets.xcassets in Resources */,
-				8A8C3D3027A5D25E00ED8B07 /* 8ball-shake.gif in Resources */,
+				8A8C3D3027A5D25E00ED8B07 /* 8ball-shake-gif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +216,7 @@
 			files = (
 				8A8C3D0827A5B20900ED8B07 /* AppDelegate.swift in Sources */,
 				8A8C3D2627A5C5D500ED8B07 /* HomeVC.swift in Sources */,
+				8A8C3D3227A5E67600ED8B07 /* UIImage+Gif.swift in Sources */,
 				8A8C3D0A27A5B20900ED8B07 /* SceneDelegate.swift in Sources */,
 				8A8C3D2127A5BC0F00ED8B07 /* Answer.swift in Sources */,
 				8A8C3D2327A5C38D00ED8B07 /* TabBar.swift in Sources */,

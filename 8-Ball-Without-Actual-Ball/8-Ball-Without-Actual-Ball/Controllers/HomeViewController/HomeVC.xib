@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="__Ball_Without_Actual_Ball" customModuleProvider="target">
             <connections>
+                <outlet property="imageBallGif" destination="uyc-Gn-sjB" id="Wcu-qE-VU4"/>
+                <outlet property="shakeLabel" destination="Axr-r0-erx" id="LVy-yn-0c5"/>
+                <outlet property="textAnswerLabel" destination="Bp7-oE-0br" id="pz5-KG-W59"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
