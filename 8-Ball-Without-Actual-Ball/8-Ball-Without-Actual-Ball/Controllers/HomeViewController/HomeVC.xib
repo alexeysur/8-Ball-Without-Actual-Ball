@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="__Ball_Without_Actual_Ball" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-Gn-sjB">
+                    <rect key="frame" x="87" y="248" width="240" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="WXo-sp-KmX"/>
+                        <constraint firstAttribute="width" secondItem="uyc-Gn-sjB" secondAttribute="height" multiplier="1:1" id="bZO-gR-U7D"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake your phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axr-r0-erx">
+                    <rect key="frame" x="79.666666666666686" y="80" width="255" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="255" id="1Ya-uc-CqO"/>
+                        <constraint firstAttribute="height" constant="40" id="2B9-zm-T1o"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp7-oE-0br">
+                    <rect key="frame" x="20" y="508" width="374" height="184"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="uyc-Gn-sjB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="2ey-lo-B5c"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bp7-oE-0br" secondAttribute="trailing" constant="20" id="8sD-Wz-ZNj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bp7-oE-0br" secondAttribute="bottom" constant="44" id="ES9-Re-QVq"/>
+                <constraint firstItem="Axr-r0-erx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="GKS-cK-4hh"/>
+                <constraint firstItem="Axr-r0-erx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Laz-fA-UV8"/>
+                <constraint firstItem="Bp7-oE-0br" firstAttribute="top" secondItem="uyc-Gn-sjB" secondAttribute="bottom" constant="20" id="nLx-cR-mRa"/>
+                <constraint firstItem="uyc-Gn-sjB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rfF-Uq-dVB"/>
+                <constraint firstItem="Bp7-oE-0br" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="xFa-j8-8he"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="99.456521739130437"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
