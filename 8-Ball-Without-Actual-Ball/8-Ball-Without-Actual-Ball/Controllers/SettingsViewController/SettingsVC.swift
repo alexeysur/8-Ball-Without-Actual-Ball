@@ -36,8 +36,17 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func doneTapped() {
-        saveAnswerToFile()
-        tableViewAnswers.reloadData()
+        if answerTextField.text != "" {
+            saveAnswerToFile()
+            tableViewAnswers.reloadData()
+        } else {
+            let alertController = UIAlertController(title: "Alert", message: "Need write your variant of answer!", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel) { (action) in }
+             alertController.addAction(cancel)
+             alertController.view.tintColor = UIColor.blue
+             self.present(alertController, animated: true, completion: nil)
+          }
+        
     }
     
     func readAnswersFromFile() {
@@ -54,13 +63,10 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print("Unable to copy file. ERROR: \(error.localizedDescription)")
             }
         }
-        //    let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        //    print("Loaded Answers.plist file is --> \(resultDictionary?.description ?? "")")
         let myDict = NSDictionary(contentsOfFile: path)
         if let dict = myDict {
             //loading values
             tableAnswers.arrayAnswers = dict.object(forKey: "Answers")! as! [String]
-            print("arrayAnswers = \(tableAnswers.arrayAnswers)")
         } else {
             print("WARNING: Couldn't create dictionary from Answers.plist!")
         }
@@ -83,10 +89,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let dict: NSMutableDictionary = ["Answers": tableAnswers.arrayAnswers]
             //saving values
             dict.write(toFile: path, atomically: false)
-            
-            //  let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-            //  print("Saved Answers.plist file is --> \(resultDictionary?.description)")
-            
         }
     }
 }
@@ -114,10 +116,9 @@ extension SettingsVC {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("Deleted")
-            
             self.tableAnswers.arrayAnswers.remove(at: indexPath.row)
             self.tableViewAnswers.deleteRows(at: [indexPath], with: .automatic)
+            saveAnswerToFile()
         }
     }
     
