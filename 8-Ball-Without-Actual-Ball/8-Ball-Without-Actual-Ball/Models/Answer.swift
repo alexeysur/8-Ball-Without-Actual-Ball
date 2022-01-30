@@ -8,17 +8,25 @@
 import Foundation
 
 struct Answer: Codable {
-    let answer: String
-    let type: String
-    let date: Date
-
-    init(answer: String, type: String, date: Date = Date()) {
-        self.answer = answer
-        self.type = type
-        self.date = date
+    var magic: Magic
+    
+    enum CodingKeys: String, CodingKey {
+           case magic = "magic"
     }
 }
 
+struct Magic: Codable {
+    let question: String
+    let answer: String
+    let type: String
+    
+    enum CodingKeys: String, CodingKey {
+      case answer = "answer"
+      case type = "type"
+      case question = "question"
+    }
+}
+    
 class TableAnswers {
     static let tableObj = TableAnswers()
     private init() { }
