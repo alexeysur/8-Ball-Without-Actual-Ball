@@ -8,28 +8,25 @@
 import UIKit
 
 class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-  
-    let filename: String = "Answers"
-    let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-    var fileURL: URL!
-
+    
+    let tableAnswers = TableAnswers.tableObj
+    
     @IBOutlet weak var writeAnswerLabel: UILabel!
     @IBOutlet weak var answerTextField: UITextField!
     @IBOutlet weak var tableViewAnswers: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        readAnswersFromFile()
         setupVC()
     }
     
     private func setupVC() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
-        
-        let fileURL = DocumentDirURL.appendingPathComponent("Answers").appendingPathExtension("txt")
-        print("FilePath: \(fileURL.path)")
-       // readAnswersFromFile(fileURL: fileURL)
+        tableViewAnswers.delegate = self
+        tableViewAnswers.dataSource = self
+        setupTableView()
         
     }
     
@@ -37,46 +34,91 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         answerTextField.text = ""
         tabBarController!.selectedIndex = 0
     }
-
+    
     @objc func doneTapped() {
-        
+        saveAnswerToFile()
+        tableViewAnswers.reloadData()
     }
     
-    func readAnswersFromFile(fileURL: URL) {
-        var readString = ""
-        do {
-            readString = try String(contentsOf: fileURL)
-        } catch let error as NSError {
-            print("Failed reading to URL: \(fileURL), Error: " + error.localizedDescription)
-        }
-    }
-    
-    func saveAnswerToFile(fileURL: URL) {
-      
+    func readAnswersFromFile() {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+        let documentsDirectory = paths.object(at: 0) as! NSString
+        let path = documentsDirectory.appendingPathComponent("Answers.plist")
         
-        
-        
-        if answerTextField.text != "" {
-                let writingString = answerTextField.text
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: path) {
+            guard let bundlePath = Bundle.main.path(forResource: "Answers", ofType: "plist") else { return }
             do {
-                try writingString?.write(to: fileURL, atomically: true, encoding: String.Encoding.utf16)
-                
+                try fileManager.copyItem(atPath: bundlePath, toPath: path)
             } catch let error as NSError {
-                print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
+                print("Unable to copy file. ERROR: \(error.localizedDescription)")
             }
+        }
+        //    let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        //    print("Loaded Answers.plist file is --> \(resultDictionary?.description ?? "")")
+        let myDict = NSDictionary(contentsOfFile: path)
+        if let dict = myDict {
+            //loading values
+            tableAnswers.arrayAnswers = dict.object(forKey: "Answers")! as! [String]
+            print("arrayAnswers = \(tableAnswers.arrayAnswers)")
+        } else {
+            print("WARNING: Couldn't create dictionary from Answers.plist!")
+        }
+        tableViewAnswers.reloadData()
+        
+    }
+    
+    func saveAnswerToFile() {
+        if answerTextField.text != "" || answerTextField.text != " " {
+            guard let txt = answerTextField.text else {
+                print("answerTextField isn't correct")
+                return
+            }
+            tableAnswers.arrayAnswers.append(txt)
+            
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+            let documentsDirectory = paths.object(at: 0) as! NSString
+            let path = documentsDirectory.appendingPathComponent("Answers.plist")
+            
+            let dict: NSMutableDictionary = ["Answers": tableAnswers.arrayAnswers]
+            //saving values
+            dict.write(toFile: path, atomically: false)
+            
+            //  let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+            //  print("Saved Answers.plist file is --> \(resultDictionary?.description)")
+            
         }
     }
 }
 
 
 extension SettingsVC {
+    func setupTableView() {
+        self.tableViewAnswers.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return  tableAnswers.arrayAnswers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = String(indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = tableAnswers.arrayAnswers[indexPath.row]
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted")
+            
+            self.tableAnswers.arrayAnswers.remove(at: indexPath.row)
+            self.tableViewAnswers.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }

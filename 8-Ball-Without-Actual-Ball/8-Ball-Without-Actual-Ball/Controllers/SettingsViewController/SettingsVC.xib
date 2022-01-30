@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="agr-F1-VKE">
-                    <rect key="frame" x="0.0" y="148.33333333333326" width="414" height="588.66666666666674"/>
+                    <rect key="frame" x="0.0" y="80" width="414" height="656"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiN-UN-n1u">
@@ -59,7 +59,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="agr-F1-VKE" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.8" id="1gQ-6Z-utb"/>
+                <constraint firstItem="agr-F1-VKE" firstAttribute="top" secondItem="oiN-UN-n1u" secondAttribute="bottom" id="5IJ-gm-nme"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oiN-UN-n1u" secondAttribute="trailing" id="EUV-iI-tAk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="agr-F1-VKE" secondAttribute="bottom" id="K1G-1T-fWG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="agr-F1-VKE" secondAttribute="trailing" id="VA6-BI-9fX"/>

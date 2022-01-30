@@ -18,3 +18,11 @@ struct Answer: Codable {
         self.date = date
     }
 }
+
+class TableAnswers {
+    static let tableObj = TableAnswers()
+    private init() { }
+
+    var arrayAnswers: [String] = []
+    static var countAnswers: Int = 0
+}

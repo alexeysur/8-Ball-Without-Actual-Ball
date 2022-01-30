@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A7E18D227A6C29E0006D616 /* Answers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E18D127A6C29E0006D616 /* Answers.plist */; };
 		8A8C3D0827A5B20900ED8B07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C3D0727A5B20900ED8B07 /* AppDelegate.swift */; };
 		8A8C3D0A27A5B20900ED8B07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C3D0927A5B20900ED8B07 /* SceneDelegate.swift */; };
 		8A8C3D1127A5B20A00ED8B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8C3D1027A5B20A00ED8B07 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A7E18D127A6C29E0006D616 /* Answers.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Answers.plist; sourceTree = "<group>"; };
 		8A8C3D0427A5B20900ED8B07 /* 8-Ball-Without-Actual-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "8-Ball-Without-Actual-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8C3D0727A5B20900ED8B07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A8C3D0927A5B20900ED8B07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				8A8C3D1B27A5B98300ED8B07 /* Models */,
 				8A8C3D1527A5B20A00ED8B07 /* Info.plist */,
 				8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake-gif.gif */,
+				8A7E18D127A6C29E0006D616 /* Answers.plist */,
 			);
 			path = "8-Ball-Without-Actual-Ball";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				8A8C3D2E27A5C6C600ED8B07 /* SettingsVC.xib in Resources */,
 				8A8C3D2727A5C5D500ED8B07 /* HomeVC.xib in Resources */,
 				8A8C3D1127A5B20A00ED8B07 /* Assets.xcassets in Resources */,
+				8A7E18D227A6C29E0006D616 /* Answers.plist in Resources */,
 				8A8C3D3027A5D25E00ED8B07 /* 8ball-shake-gif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
