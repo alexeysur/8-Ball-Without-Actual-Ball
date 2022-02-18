@@ -1,6 +1,7 @@
 # 8-Ball-Without-Actual-Ball
 ![Platforms](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)
 [![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg?style=flat)](https://developer.apple.com/swift)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description:
 Application to get answer on any question user asks :)<br>
