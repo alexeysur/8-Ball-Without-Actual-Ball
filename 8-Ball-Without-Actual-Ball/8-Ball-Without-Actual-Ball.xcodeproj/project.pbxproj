@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8592CA8E2B14BCC1C2F69A01 /* Pods_8_Ball_Without_Actual_Ball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FC0D4C53C4A642191EEB3 /* Pods_8_Ball_Without_Actual_Ball.framework */; };
 		8A7E18D227A6C29E0006D616 /* Answers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E18D127A6C29E0006D616 /* Answers.plist */; };
 		8A7E18DA27A736E30006D616 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7E18D927A736E30006D616 /* NetworkManager.swift */; };
 		8A8C3D0827A5B20900ED8B07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C3D0727A5B20900ED8B07 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743D405876C531A10120D301 /* Pods-8-Ball-Without-Actual-Ball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-8-Ball-Without-Actual-Ball.release.xcconfig"; path = "Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball.release.xcconfig"; sourceTree = "<group>"; };
 		8A7E18D127A6C29E0006D616 /* Answers.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Answers.plist; sourceTree = "<group>"; };
 		8A7E18D927A736E30006D616 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8A8C3D0427A5B20900ED8B07 /* 8-Ball-Without-Actual-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "8-Ball-Without-Actual-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +42,8 @@
 		8A8C3D2C27A5C6C600ED8B07 /* SettingsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsVC.xib; sourceTree = "<group>"; };
 		8A8C3D2F27A5D25E00ED8B07 /* 8ball-shake-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "8ball-shake-gif.gif"; sourceTree = "<group>"; };
 		8A8C3D3127A5E67600ED8B07 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		DC0FC0D4C53C4A642191EEB3 /* Pods_8_Ball_Without_Actual_Ball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_8_Ball_Without_Actual_Ball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC91DAEB20654876B6F1F0DC /* Pods-8-Ball-Without-Actual-Ball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-8-Ball-Without-Actual-Ball.debug.xcconfig"; path = "Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8592CA8E2B14BCC1C2F69A01 /* Pods_8_Ball_Without_Actual_Ball.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,8 @@
 			children = (
 				8A8C3D0627A5B20900ED8B07 /* 8-Ball-Without-Actual-Ball */,
 				8A8C3D0527A5B20900ED8B07 /* Products */,
+				A64805C66A692E101B2B529D /* Pods */,
+				A0A5AB3A7F90312C9C7A08ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +154,24 @@
 			path = HomeViewController;
 			sourceTree = "<group>";
 		};
+		A0A5AB3A7F90312C9C7A08ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC0FC0D4C53C4A642191EEB3 /* Pods_8_Ball_Without_Actual_Ball.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A64805C66A692E101B2B529D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC91DAEB20654876B6F1F0DC /* Pods-8-Ball-Without-Actual-Ball.debug.xcconfig */,
+				743D405876C531A10120D301 /* Pods-8-Ball-Without-Actual-Ball.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A8C3D1827A5B20A00ED8B07 /* Build configuration list for PBXNativeTarget "8-Ball-Without-Actual-Ball" */;
 			buildPhases = (
+				ECBF00FA6D8E5792A2942E49 /* [CP] Check Pods Manifest.lock */,
 				8A8C3D0027A5B20900ED8B07 /* Sources */,
 				8A8C3D0127A5B20900ED8B07 /* Frameworks */,
 				8A8C3D0227A5B20900ED8B07 /* Resources */,
+				71DB07EBBA5BADA6D56BFB96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +242,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71DB07EBBA5BADA6D56BFB96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECBF00FA6D8E5792A2942E49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-8-Ball-Without-Actual-Ball-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A8C3D0027A5B20900ED8B07 /* Sources */ = {
@@ -364,6 +433,7 @@
 		};
 		8A8C3D1927A5B20A00ED8B07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC91DAEB20654876B6F1F0DC /* Pods-8-Ball-Without-Actual-Ball.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -391,6 +461,7 @@
 		};
 		8A8C3D1A27A5B20A00ED8B07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 743D405876C531A10120D301 /* Pods-8-Ball-Without-Actual-Ball.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
