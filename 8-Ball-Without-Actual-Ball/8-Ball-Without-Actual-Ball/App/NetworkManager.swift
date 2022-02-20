@@ -7,17 +7,17 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 enum DataError: Error {
     case invalidResponse
-    case invalidData
     case decodingError
-    case serverError
 }
 
-final class NetworkManager {
-    typealias result<T> = (Result<T, Error>) -> Void
-
+class NetworkManager {
+    typealias result<T> = (Swift.Result<T, Error>) -> Void
+    private let alamofireManager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default)
+    
     func getAnswer<T: Decodable>(of type: T.Type, from url: URL, completion: @escaping result<T>) {
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -46,4 +46,22 @@ final class NetworkManager {
         }.resume()
     }
 
+   func getAnswerUseAlamofire<T: Decodable>(of type: T.Type, from url: URL, completion: @escaping result<T>) {
+       let encoding: ParameterEncoding = JSONEncoding.default
+       
+       let _ = alamofireManager.request(url, method: .get,
+                                              parameters: nil, encoding: encoding,
+                                              headers: nil).responseJSON { response in
+           if response.result.isSuccess {
+               if let decodedData = response.result.value as? T {
+                   completion(.success(decodedData))
+               } else {
+                   completion(.failure(DataError.decodingError))
+               }
+           } else {
+               completion(.failure(DataError.invalidResponse))
+           }
+       }
+  }
+    
 }

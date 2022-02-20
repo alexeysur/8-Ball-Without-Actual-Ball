@@ -6,6 +6,6 @@ target '8-Ball-Without-Actual-Ball' do
   use_frameworks!
 
   # Networking
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.8.2'
   pod 'SwiftLint'
 end
