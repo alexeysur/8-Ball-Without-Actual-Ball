@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func readAnswersFromFile() {
 
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-        let documentsDirectory = paths.object(at: 0) as! NSString
+        guard let documentsDirectory = paths.object(at: 0) as? NSString else {
+            return
+        }
+        
         let path = documentsDirectory.appendingPathComponent("Answers.plist")
 
         let fileManager = FileManager.default

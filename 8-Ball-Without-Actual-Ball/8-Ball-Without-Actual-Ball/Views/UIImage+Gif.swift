@@ -20,7 +20,7 @@ extension UIImageView {
         }
     }
 
-    @available(iOS 9.0, *)
+ //   @available(iOS 9.0, *)
     public func loadGif(asset: String) {
         DispatchQueue.global().async {
             let image = UIImage.gif(asset: asset)
@@ -77,7 +77,7 @@ extension UIImage {
         return gif(data: imageData)
     }
 
-    @available(iOS 9.0, *)
+ //   @available(iOS 9.0, *)
     public class func gif(asset: String) -> UIImage? {
         // Create source from assets catalog
         guard let dataAsset = NSDataAsset(name: asset) else {
