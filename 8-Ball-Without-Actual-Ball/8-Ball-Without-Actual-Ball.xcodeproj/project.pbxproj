@@ -168,7 +168,6 @@
 				FC91DAEB20654876B6F1F0DC /* Pods-8-Ball-Without-Actual-Ball.debug.xcconfig */,
 				743D405876C531A10120D301 /* Pods-8-Ball-Without-Actual-Ball.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,6 +183,7 @@
 				8A8C3D0127A5B20900ED8B07 /* Frameworks */,
 				8A8C3D0227A5B20900ED8B07 /* Resources */,
 				71DB07EBBA5BADA6D56BFB96 /* [CP] Embed Pods Frameworks */,
+				8A7BA9F727C2BCBA006EB074 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -260,6 +260,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-8-Ball-Without-Actual-Ball/Pods-8-Ball-Without-Actual-Ball-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8A7BA9F727C2BCBA006EB074 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" --path \"${PROJECT_DIR}/.swiftlint.yml\"\n";
 		};
 		ECBF00FA6D8E5792A2942E49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

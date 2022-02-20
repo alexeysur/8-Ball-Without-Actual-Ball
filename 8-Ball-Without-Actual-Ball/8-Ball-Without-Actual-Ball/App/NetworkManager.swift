@@ -17,19 +17,19 @@ enum DataError: Error {
 
 final class NetworkManager {
     typealias result<T> = (Result<T, Error>) -> Void
-    
-    func getAnswer<T: Decodable>(of type: T.Type, from url: URL,  completion: @escaping result<T>) {
-        
+
+    func getAnswer<T: Decodable>(of type: T.Type, from url: URL, completion: @escaping result<T>) {
+
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
             }
-            
+
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(DataError.invalidResponse))
                 return
             }
-            
+
             if 200...299 ~= response.statusCode {
                 if let data = data {
                     do {
@@ -45,5 +45,5 @@ final class NetworkManager {
             }
         }.resume()
     }
-    
+
 }

@@ -24,13 +24,13 @@ class TabBar: UITabBarController {
             createNavController(for: SettingsVC(), title: NSLocalizedString("Settings", comment: ""), image: UIImage(systemName: "gearshape.fill")!)
         ]
     }
-    
+
     fileprivate func createNavController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
         rootViewController.navigationItem.title = title
-        
+
         return navController
     }
 }

@@ -8,41 +8,41 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    
+
     let tableAnswers = TableAnswers.tableObj
     let networkManager = NetworkManager()
     let urlToSite: URL = URL(string: "https://8ball.delegator.com/magic/JSON/_")!
-    
+
     @IBOutlet weak var textAnswerLabel: UILabel!
     @IBOutlet weak var imageBallGif: UIImageView!
     @IBOutlet weak var shakeLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
     }
-    
+
     private func setupVC() {
         setImagePdf()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapResponse))
         imageBallGif.addGestureRecognizer(tapGestureRecognizer)
         imageBallGif.isUserInteractionEnabled = true
     }
- 
+
     private func setImagePdf() {
         imageBallGif.contentMode = .scaleAspectFit
         imageBallGif.image = UIImage(named: "8ball-shake-pdf")
     }
-    
+
     private func setImageGif() {
         imageBallGif.contentMode = .scaleAspectFit
         imageBallGif.image = UIImage.gif(name: "8ball-shake-gif")
     }
-    
+
     override func becomeFirstResponder() -> Bool {
         return true
     }
-    
+
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         print("Device begin shake!")
         setImageGif()
@@ -70,19 +70,19 @@ class HomeVC: UIViewController {
             }
         }
     }
-    
+
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             print("Device was shaken!")
-            
+
         }
     }
-    
+
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         setImagePdf()
         print("Shake cancelled!")
     }
-    
+
     @objc func tapResponse() {
         setImagePdf()
         print("motionCancelled")
