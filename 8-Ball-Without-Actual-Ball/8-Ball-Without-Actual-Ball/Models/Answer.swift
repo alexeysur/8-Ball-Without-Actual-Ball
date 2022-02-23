@@ -32,5 +32,4 @@ class TableAnswers {
     private init() { }
 
     var arrayAnswers: [String] = []
-    static var countAnswers: Int = 0
 }

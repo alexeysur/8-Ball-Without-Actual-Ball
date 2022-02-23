@@ -34,4 +34,14 @@ final class DataInputOutput {
             print("WARNING: Couldn't create dictionary from Answers.plist!")
         }
     }
+    
+    func saveAnswerToFile(arrayAnswers: [String]) {
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+            let documentsDirectory = paths.object(at: 0) as! NSString
+            let path = documentsDirectory.appendingPathComponent("Answers.plist")
+
+            let dict: NSMutableDictionary = ["Answers": arrayAnswers]
+            // saving values
+            dict.write(toFile: path, atomically: false)
+    }
 }

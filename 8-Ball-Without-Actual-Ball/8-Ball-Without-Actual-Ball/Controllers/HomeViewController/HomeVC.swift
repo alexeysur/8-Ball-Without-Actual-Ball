@@ -45,30 +45,6 @@ class HomeVC: UIViewController {
 
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         setImageGif()
-//        networkManager.getAnswer(of: Answer.self, from: urlToSite) { (result) in
-//            switch result {
-//            case .failure(let error):
-//                if error is DataError {
-//                    print("DataError = \(error)")
-//                    DispatchQueue.main.async {
-//                        let randomIndex = Int.random(in: 0..<self.tableAnswers.arrayAnswers.count-1)
-//                        print("randomIndex = \(randomIndex)")
-//                        print("answer = \(self.tableAnswers.arrayAnswers[randomIndex])")
-//                        self.textAnswerLabel.text = self.tableAnswers.arrayAnswers[randomIndex]
-//                        self.setImagePdf()
-//                    }
-//                } else {
-//                    print(error.localizedDescription)
-//                }
-//            case .success(let jsonResult):
-//                DispatchQueue.main.async {
-//                    print("jsonResult = \(jsonResult)")
-//                    self.textAnswerLabel.text = jsonResult.magic.answer
-//                    self.setImagePdf()
-//                }
-//            }
-//        }
-//
   
         //Network request with use Alamofire 
         networkManager.getAnswerUseAlamofire(of: Answer.self, from: urlToSite) { (result) in
@@ -99,7 +75,6 @@ class HomeVC: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             print("Device was shaken!")
-
         }
     }
 

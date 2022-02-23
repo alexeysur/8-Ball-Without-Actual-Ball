@@ -10,6 +10,7 @@ import UIKit
 class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let tableAnswers = TableAnswers.tableObj
+    let data = DataInputOutput()
 
     @IBOutlet weak var writeAnswerLabel: UILabel!
     @IBOutlet weak var answerTextField: UITextField!
@@ -17,7 +18,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        readAnswersFromFile()
+        data.readAnswersFromFile()
         setupVC()
     }
 
@@ -27,7 +28,6 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableViewAnswers.delegate = self
         tableViewAnswers.dataSource = self
         setupTableView()
-
     }
 
     @objc func cancelTapped() {
@@ -37,7 +37,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @objc func doneTapped() {
         if answerTextField.text != "" {
-            saveAnswerToFile()
+            saveDataToFile()
             tableViewAnswers.reloadData()
         } else {
             let alertController = UIAlertController(title: "Alert", message: "Need write your variant of answer!", preferredStyle: .alert)
@@ -49,46 +49,14 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     }
 
-    func readAnswersFromFile() {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-        let documentsDirectory = paths.object(at: 0) as! NSString
-        let path = documentsDirectory.appendingPathComponent("Answers.plist")
-
-        let fileManager = FileManager.default
-        if !fileManager.fileExists(atPath: path) {
-            guard let bundlePath = Bundle.main.path(forResource: "Answers", ofType: "plist") else { return }
-            do {
-                try fileManager.copyItem(atPath: bundlePath, toPath: path)
-            } catch let error as NSError {
-                print("Unable to copy file. ERROR: \(error.localizedDescription)")
-            }
-        }
-        let myDict = NSDictionary(contentsOfFile: path)
-        if let dict = myDict {
-            // loading values
-            tableAnswers.arrayAnswers = dict.object(forKey: "Answers")! as! [String]
-        } else {
-            print("WARNING: Couldn't create dictionary from Answers.plist!")
-        }
-        tableViewAnswers.reloadData()
-
-    }
-
-    func saveAnswerToFile() {
+    func saveDataToFile() {
         if answerTextField.text != "" || answerTextField.text != " " {
             guard let txt = answerTextField.text else {
                 print("answerTextField isn't correct")
                 return
             }
             tableAnswers.arrayAnswers.append(txt)
-
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-            let documentsDirectory = paths.object(at: 0) as! NSString
-            let path = documentsDirectory.appendingPathComponent("Answers.plist")
-
-            let dict: NSMutableDictionary = ["Answers": tableAnswers.arrayAnswers]
-            // saving values
-            dict.write(toFile: path, atomically: false)
+            data.saveAnswerToFile(arrayAnswers: tableAnswers.arrayAnswers)
         }
     }
 }
@@ -117,8 +85,7 @@ extension SettingsVC {
         if editingStyle == .delete {
             self.tableAnswers.arrayAnswers.remove(at: indexPath.row)
             self.tableViewAnswers.deleteRows(at: [indexPath], with: .automatic)
-            saveAnswerToFile()
+            saveDataToFile()
         }
     }
-
 }
