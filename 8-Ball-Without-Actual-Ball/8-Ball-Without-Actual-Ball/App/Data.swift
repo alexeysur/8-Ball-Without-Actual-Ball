@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Data {
+final class DataInputOutput {
     let tableAnswers = TableAnswers.tableObj
     
     func readAnswersFromFile() {

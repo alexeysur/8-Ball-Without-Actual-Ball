@@ -18,19 +18,29 @@ class TabBar: UITabBarController {
         setupVC()
     }
 
-    func setupVC() {
+    private func setupVC() {
+        guard let imageTabHomeVC = UIImage(systemName: "questionmark.circle") else {
+            print("Image not found")
+            return
+        }
+         
+        guard let imageTabSettingsVC = UIImage(systemName: "gearshape.fill") else {
+            print("Image not found")
+            return
+        }
+        
         viewControllers = [
-            createNavController(for: HomeVC(), title: NSLocalizedString("Quetion", comment: ""), image: UIImage(systemName: "questionmark.circle")!),
-            createNavController(for: SettingsVC(), title: NSLocalizedString("Settings", comment: ""), image: UIImage(systemName: "gearshape.fill")!)
+            createNavController(for: HomeVC(), title: NSLocalizedString("Quetion", comment: ""), image: imageTabHomeVC),
+            createNavController(for: SettingsVC(), title: NSLocalizedString("Settings", comment: ""), image: imageTabSettingsVC)
         ]
     }
-    
-    fileprivate func createNavController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
+
+    private func createNavController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
         rootViewController.navigationItem.title = title
-        
+
         return navController
     }
 }
